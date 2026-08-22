@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I'm Sorry 💗</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            width: 360px;
+            padding: 35px;
+            text-align: center;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .heart {
+            font-size: 60px;
+        }
+
+        h1 {
+            color: #ff5c8a;
+            font-size: 30px;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 8px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #yesBtn {
+            background: #ff6b9a;
+            color: white;
+        }
+
+        #noBtn {
+            background: #ddd;
+            color: #555;
+        }
+
+        #backBtn {
+            background: #f3f3f3;
+            color: #555;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #message {
+            margin-top: 20px;
+            color: #ff5c8a;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="heart">🥺💗</div>
+
+        <h1>I'm Sorry</h1>
+
+        <p id="question">
+            Are you still mad at me? 🥺
+        </p>
+
+        <div id="buttons">
+
+            <button id="yesBtn" onclick="yesAnswer()">
+                Yes 😭
+            </button>
+
+            <button id="noBtn" onclick="noAnswer()">
+                No 💗
+            </button>
+
+        </div>
+
+        <div id="message"></div>
+
+        <button id="backBtn" onclick="goBack()">
+            ← Back
+        </button>
+
+    </div>
+
+
+    <script>
+
+        let noCount = 0;
+
+        function yesAnswer() {
+
+            document.getElementById("message").innerHTML =
+                "I'm really sorry po talaga babyyy. 🥺💗<br><br>" +
+                "kung ano man ang mga nasabi ko kahapon I didn't mean it sorry po talaga " +
+                "if your ready just call or chat ka lang maghihintay poo ako"
+                
+            document.getElementById("yesBtn").style.display = "none";
+            document.getElementById("noBtn").style.display = "none";
+        }
+
+
+        function noAnswer() {
+
+            noCount++;
+
+            if (noCount == 1) {
+
+                document.getElementById("message").innerHTML =
+                    "Are you sure? 🥺💗";
+
+            }
+
+            else if (noCount == 2) {
+
+                document.getElementById("message").innerHTML =
+                    "Really? You're not mad anymore? 🥺";
+
+            }
+
+            else if (noCount == 3) {
+
+                document.getElementById("message").innerHTML =
+                    "Okay... I just wanted to make sure. 😭💗";
+
+            }
+
+            else if (noCount == 4) {
+
+                document.getElementById("message").innerHTML =
+                    "Okay... I'll wait nalang po babyyy until you're okay. 🥺💗<br><br>" +
+                    "Take your time. I won't rush you. Sorry talaga poo , I Miss You na pooo" 
+                
+
+                document.getElementById("yesBtn").style.display = "none";
+                document.getElementById("noBtn").style.display = "none";
+            }
+        }
+
+
+        function goBack() {
+
+            if (noCount > 0) {
+                noCount--;
+
+                if (noCount == 0) {
+                    document.getElementById("message").innerHTML =
+                        "";
+                }
+
+                else if (noCount == 1) {
+                    document.getElementById("message").innerHTML =
+                        "Are you sure? 🥺💗";
+                }
+
+                else if (noCount == 2) {
+                    document.getElementById("message").innerHTML =
+                        "Really? You're not mad anymore? 🥺";
+                }
+
+                else if (noCount == 3) {
+                    document.getElementById("message").innerHTML =
+                        "Okay... I just wanted to make sure. 😭💗";
+                }
+
+                document.getElementById("yesBtn").style.display = "inline-block";
+                document.getElementById("noBtn").style.display = "inline-block";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
